@@ -17,7 +17,7 @@ if submit and user_input_situ and user_input_act and user_input_res:
     #st.write(user_input)
     gpt_prompt = [{
         "role": "system",
-        "content": "You should create a story like a business episode only based on comments in <Situation>, <Action> and <Result>. add positive feedback. Response in korean. Response the story shortly around 200 words"
+        "content": "Create a story like a business episode only based on comments in <Situation>, <Action> and <Result>. Just like story-telling your story. Add positive feedback. Response in korean. Response the story shortly around 200 words"
     }]
 
     gpt_prompt.append({
