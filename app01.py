@@ -4,7 +4,8 @@ import openai
 openai.api_key = st.secrets["api_key"]
 
 st.title("📝DCM comment generator")
-st.subheader('Situation, Action, Result를 간략하게 입력하면, ChatGPT가 자기평가 comment를 생성합니다.')
+st.subheader('Situation, Action, Result를 간략하게 입력하면,')
+st.subheader('ChatGPT가 자기평가 comment를 생성합니다.')
 
 with st.form("form"):
     user_input_situ = st.text_input("Situation")
