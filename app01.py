@@ -2,6 +2,7 @@ import streamlit as st
 import openai
 
 openai.api_key = st.secrets["api_key"]
+system_content = st.secrest["system_content"]
 
 st.title("📝DCM comment generator")
 st.text("Situation, Action, Result를 간략하게 입력하면,ChatGPT가 자기평가 comment를 생성합니다.")
@@ -17,7 +18,7 @@ if submit and user_input_situ and user_input_act and user_input_res:
     #st.write(user_input)
     gpt_prompt = [{
         "role": "system",
-        "content": "Create a story like a business episode only based on comments in <Situation>, <Action> and <Result>. Just like story-telling your story. Add positive feedback. Response in korean. Response the story shortly around 200 words"
+        "content": system_content
     }]
 
     gpt_prompt.append({
