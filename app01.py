@@ -2,7 +2,7 @@ import streamlit as st
 import openai
 
 openai.api_key = st.secrets["api_key"]
-system_content = st.secrest["system_content"]
+SYSTEM_CONTENT = st.secrest["system_content"]
 
 st.title("📝DCM comment generator")
 st.text("Situation, Action, Result를 간략하게 입력하면,ChatGPT가 자기평가 comment를 생성합니다.")
