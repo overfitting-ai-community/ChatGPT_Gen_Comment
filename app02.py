@@ -33,6 +33,7 @@ if submit and user_input_situ and user_input_act and user_input_res:
             stream=True,
              )
     # iterate through the stream of events
+    t = st.empty()
     content = ""
     #st.session_state.content = ""
     counter = 0
