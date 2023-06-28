@@ -29,9 +29,17 @@ if submit and user_input_situ and user_input_act and user_input_res:
     with st.spinner("Waiting for ChatGPT..."):
         gpt_response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
-            messages=gpt_prompt
-        )
-
-    prompt = gpt_response["choices"][0]["message"]["content"]
-    #st.code(prompt)
-    st.write(prompt)
+            messages=gpt_prompt,
+            stream=True,
+             )
+    # iterate through the stream of events
+    t = st.empty()
+    content = ""
+    #st.session_state.content = ""
+    counter = 0
+    for completions in gpt_response:
+        counter += 1
+        if "content" in completions.choices[0].delta:
+            content += completions.choices[0].delta.get("content")
+        t.markdown(" %s " % content)
+        #st.write(st.session_state.content) 
