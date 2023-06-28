@@ -40,7 +40,7 @@ if submit and user_input_situ and user_input_act and user_input_res:
         counter += 1
         if "content" in completions.choices[0].delta:
             st.session_state.content += completions.choices[0].delta.get("content")
-            st.write(st.session_state.content) 
+        st.write(st.session_state.content) 
 
     
     # for event in gpt_response:
