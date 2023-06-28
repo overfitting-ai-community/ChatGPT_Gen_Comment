@@ -30,9 +30,14 @@ if submit and user_input_situ and user_input_act and user_input_res:
         gpt_response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=gpt_prompt,
-            stream=True
-        )
+            stream=True,
+             )
+    # iterate through the stream of events
+    for event in gpt_response:
+        event_text = event['choices'][0]['text']  # extract the text
+        st.write(event_text)  
+       
 
-    prompt = gpt_response["choices"][0]["message"]["content"]
+    #prompt = gpt_response["choices"][0]["message"]["content"]
     #st.code(prompt)
-    st.write(prompt)
+    #st.write(prompt)
