@@ -41,7 +41,7 @@ if submit and user_input_situ and user_input_act and user_input_res:
         counter += 1
         if "content" in completions.choices[0].delta:
             content += completions.choices[0].delta.get("content")
-        t.markdown("``` %s ```" % content)
+        t.markdown("``` %s" % content)
         #st.write(st.session_state.content) 
 
     
