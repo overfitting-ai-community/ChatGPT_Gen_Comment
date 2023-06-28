@@ -33,9 +33,18 @@ if submit and user_input_situ and user_input_act and user_input_res:
             stream=True,
              )
     # iterate through the stream of events
-    for event in gpt_response:
-        event_text = event['choices'][0]['text']  # extract the text
-        st.write(event_text)  
+    content = ""
+    counter = 0
+    for completions in gpt_response:
+        counter += 1
+        if "content" in completions.choices[0].delta:
+            content += completions.choices[0].delta.get("content")
+            st.write(content) 
+
+    
+    # for event in gpt_response:
+    #     event_text = event['choices'][0]['text']  # extract the text
+    #     st.write(event_text)  
        
 
     #prompt = gpt_response["choices"][0]["message"]["content"]
