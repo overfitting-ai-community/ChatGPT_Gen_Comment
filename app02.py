@@ -29,7 +29,7 @@ if submit and user_input_situ and user_input_act and user_input_res:
     with st.spinner("Waiting for ChatGPT..."):
         gpt_response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
-            messages=gpt_prompt
+            messages=gpt_prompt,
             stream=True
         )
 
