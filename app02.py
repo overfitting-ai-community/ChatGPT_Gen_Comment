@@ -34,13 +34,14 @@ if submit and user_input_situ and user_input_act and user_input_res:
              )
     # iterate through the stream of events
     content = ""
-    st.session_state.content = ""
+    #st.session_state.content = ""
     counter = 0
     for completions in gpt_response:
         counter += 1
         if "content" in completions.choices[0].delta:
-            st.session_state.content += completions.choices[0].delta.get("content")
-        st.write(st.session_state.content) 
+            content += completions.choices[0].delta.get("content")
+        t.markdown("%s..." % content)
+        #st.write(st.session_state.content) 
 
     
     # for event in gpt_response:
